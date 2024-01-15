@@ -1,4 +1,4 @@
-theme: Lap
+theme: jekyll-theme-minimal
 
 deploy:
   type: git
