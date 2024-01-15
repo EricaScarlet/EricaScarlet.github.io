@@ -1,6 +1,0 @@
-theme: jekyll-theme-minimal
-
-deploy:
-  type: git
-  repository: https://github.com/EricaScarlet/EricaScarlet.github.io.git
-  branch: master
