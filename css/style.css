@@ -1916,3 +1916,91 @@ h6 {
     height: 220px;
   }
 }
+
+.publication-list {
+  margin-top: 18px;
+}
+
+.publication-item-line {
+  display: flex;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.publication-item-line:first-child {
+  border-top: 1px solid #e0e0e0;
+}
+
+.publication-image {
+  flex: 0 0 190px;
+  height: 125px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.publication-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder if no image is added yet */
+.publication-image:empty::before {
+  content: "Overview Image";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+  font-size: 14px;
+  background: #f4f4f4;
+}
+
+.publication-text {
+  flex: 1;
+}
+
+.publication-text h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+}
+
+.publication-authors {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.publication-links {
+  font-size: 14px;
+  color: #777;
+}
+
+.publication-links a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.publication-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .publication-item-line {
+    flex-direction: column;
+  }
+
+  .publication-image {
+    flex: none;
+    width: 100%;
+    height: 220px;
+  }
+}
