@@ -1724,3 +1724,12 @@ h6 {
   letter-spacing: 0.3px;
   margin-top: 18px;
 }
+
+#museum-map {
+  width: 100%;
+  height: 460px;
+  margin-top: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
