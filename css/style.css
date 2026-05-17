@@ -1713,3 +1713,14 @@ h6 {
   font-size: 14px;
   color: #666;
 }
+
+.intro-sentence {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #444;
+  letter-spacing: 0.3px;
+  margin-top: 18px;
+}
