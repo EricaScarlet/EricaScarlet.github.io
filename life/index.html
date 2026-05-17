@@ -21,6 +21,7 @@
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <meta name="generator" content="Hexo 7.0.0">
 </head>
@@ -133,34 +134,12 @@
                   <h3 class="archive-title">
                     <span>My Museum Collection</span>
                   </h3>
-          
+              
                   <p>
-                    A collection of museum visits, artworks, exhibitions, and visual inspirations.
+                    An interactive map of museums I have visited.
                   </p>
-          
-                  <div class="art-gallery">
-                    <div class="art-item">
-                      <a href="/images/museum-01.jpg" target="_blank">
-                        <img src="/images/museum-01.jpg" alt="Museum Collection 1">
-                      </a>
-                      <p>Museum Collection 1</p>
-                    </div>
-          
-                    <div class="art-item">
-                      <a href="/images/museum-02.jpg" target="_blank">
-                        <img src="/images/museum-02.jpg" alt="Museum Collection 2">
-                      </a>
-                      <p>Museum Collection 2</p>
-                    </div>
-          
-                    <div class="art-item">
-                      <a href="/images/museum-03.jpg" target="_blank">
-                        <img src="/images/museum-03.jpg" alt="Museum Collection 3">
-                      </a>
-                      <p>Museum Collection 3</p>
-                    </div>
-                  </div>
-          
+              
+                  <div id="museum-map"></div>
                 </div>
               </div>
           
