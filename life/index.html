@@ -172,6 +172,51 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  var museumMap = L.map('museum-map').setView([39.5, -98.35], 4);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(museumMap);
+
+  var museums = [
+    {
+      name: "Minneapolis Institute of Art",
+      city: "Minneapolis, USA",
+      lat: 44.9585,
+      lng: -93.2740,
+      note: "Visited museum collection."
+    },
+    {
+      name: "The Art Institute of Chicago",
+      city: "Chicago, USA",
+      lat: 41.8796,
+      lng: -87.6237,
+      note: "Visited museum collection."
+    },
+    {
+      name: "The Metropolitan Museum of Art",
+      city: "New York, USA",
+      lat: 40.7794,
+      lng: -73.9632,
+      note: "Visited museum collection."
+    }
+  ];
+
+  museums.forEach(function(museum) {
+    L.marker([museum.lat, museum.lng])
+      .addTo(museumMap)
+      .bindPopup(
+        "<strong>" + museum.name + "</strong><br>" +
+        museum.city + "<br>" +
+        museum.note
+      );
+  });
+</script>
+
 <script src="/js/index.js"></script>
 <script src="/js/search.js"></script>
 
