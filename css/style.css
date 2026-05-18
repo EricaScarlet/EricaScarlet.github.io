@@ -2247,70 +2247,42 @@ h6 {
   text-align: justify;
 }
 
-.research-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0 28px 0;
-  padding: 12px 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.research-tabs a {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  color: #555;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.research-tabs a:hover {
-  background: #e7e7e7;
-  color: #333;
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-/* Prevent fixed navbar from covering section titles */
-.research-heading {
-  scroll-margin-top: 90px;
-}
-
+.research-tabs,
 .life-tabs {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0 28px 0;
-  padding: 12px 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
+  gap: 0;
+  margin: 22px auto 32px auto;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
+.research-tabs a,
 .life-tabs a {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: #f3f3f3;
   color: #555;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
+  padding: 0 14px;
+  line-height: 1.8;
+  transition: color 0.25s ease;
 }
 
+.research-tabs a:hover,
 .life-tabs a:hover {
-  background: #e7e7e7;
-  color: #333;
-  transform: translateY(-2px);
+  color: #111;
   text-decoration: none;
 }
 
-/* Prevent fixed navbar from covering section titles */
-.archive-title {
-  scroll-margin-top: 90px;
+.research-tabs a:not(:last-child)::after,
+.life-tabs a:not(:last-child)::after {
+  content: "|";
+  color: #aaa;
+  margin-left: 18px;
 }
 
 html {
