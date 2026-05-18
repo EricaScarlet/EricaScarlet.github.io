@@ -52,6 +52,7 @@ var _hmt = _hmt || [];
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 
 <meta name="generator" content="Hexo 7.0.0"></head>
@@ -116,6 +117,14 @@ var _hmt = _hmt || [];
       <p class="intro-sentence">
       Born a physical geographer, shaped by human geography, and ultimately mapped into GIScience.
       </p>
+      
+      <div class="education-map-section">
+        <h4>My Education Journey</h4>
+        <p class="education-map-caption">
+          Chengdu → Shanghai → Beijing → Minneapolis
+        </p>
+        <div id="education-map"></div>
+      </div>
 
     </div>
   </div>
@@ -235,6 +244,68 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     let color = 'red'
     new Draw({maxNum, iconText, color})
   </script> -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  var educationMap = L.map('education-map').setView([39.5, 40], 2);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(educationMap);
+
+  var educationPlaces = [
+    {
+      city: "Chengdu",
+      stage: "High School",
+      lat: 30.5728,
+      lng: 104.0668
+    },
+    {
+      city: "Shanghai",
+      stage: "Undergraduate",
+      lat: 31.2304,
+      lng: 121.4737
+    },
+    {
+      city: "Beijing",
+      stage: "Master",
+      lat: 39.9042,
+      lng: 116.4074
+    },
+    {
+      city: "Minneapolis",
+      stage: "PhD",
+      lat: 44.9778,
+      lng: -93.2650
+    }
+  ];
+
+  var journeyPoints = [];
+
+  educationPlaces.forEach(function(place) {
+    var marker = L.marker([place.lat, place.lng])
+      .addTo(educationMap)
+      .bindPopup(
+        "<strong>" + place.city + "</strong><br>" +
+        place.stage
+      );
+
+    journeyPoints.push([place.lat, place.lng]);
+  });
+
+  L.polyline(journeyPoints, {
+    color: "#666",
+    weight: 3,
+    opacity: 0.8,
+    dashArray: "6, 8"
+  }).addTo(educationMap);
+
+  educationMap.fitBounds(journeyPoints, {
+    padding: [30, 30]
+  });
+</script>
 
 <script src="/js/index.js"></script>
 <script src="/js/search.js"></script>
