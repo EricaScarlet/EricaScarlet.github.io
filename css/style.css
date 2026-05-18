@@ -2280,6 +2280,40 @@ h6 {
   scroll-margin-top: 90px;
 }
 
+.life-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 28px 0;
+  padding: 12px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.life-tabs a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #f3f3f3;
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.life-tabs a:hover {
+  background: #e7e7e7;
+  color: #333;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Prevent fixed navbar from covering section titles */
+.archive-title {
+  scroll-margin-top: 90px;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
