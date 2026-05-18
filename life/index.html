@@ -139,7 +139,16 @@
                     My current dream museum is Isabella Stewart Gardner Museum.
                   </p>
               
-                  <div id="museum-map"></div>
+                  <div class="museum-map-layout">
+
+                    <div class="museum-list">
+                      <h4>Museums</h4>
+                      <ul id="museum-list"></ul>
+                    </div>
+                  
+                    <div id="museum-map"></div>
+                  
+                  </div>
                 </div>
               </div>
           
@@ -277,14 +286,29 @@
   ];
 
   museums.forEach(function(museum) {
-    L.marker([museum.lat, museum.lng])
+    var marker = L.marker([museum.lat, museum.lng])
       .addTo(museumMap)
       .bindPopup(
         "<strong>" + museum.name + "</strong><br>" +
         museum.city + "<br>" +
         museum.note
       );
-  });
+  
+    var listItem = document.createElement("li");
+  
+    listItem.innerHTML =
+      "<button class='museum-name-btn' type='button'>" +
+        "<strong>" + museum.name + "</strong>" +
+        "<br><span>" + museum.city + "</span>" +
+      "</button>";
+  
+    listItem.querySelector("button").addEventListener("click", function() {
+      museumMap.setView([museum.lat, museum.lng], 13);
+      marker.openPopup();
+    });
+
+  document.getElementById("museum-list").appendChild(listItem);
+});
 </script>
 
 <script src="/js/index.js"></script>
