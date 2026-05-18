@@ -264,48 +264,95 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     {
       city: "Chengdu",
       stage: "High School",
+      school: "Chengdu No. 7 High School, Gaoxin",
+      major: "",
       lat: 30.5728,
       lng: 104.0668
     },
     {
       city: "Shanghai",
       stage: "Undergraduate",
+      school: "East China Normal University",
+      major: "Geographic Sciences",
       lat: 31.2304,
       lng: 121.4737
     },
     {
       city: "Beijing",
       stage: "Master",
+      school: "Institute of Geographic Sciences and Natural Resources Research, CAS",
+      major: "Transport Geography",
       lat: 39.9042,
       lng: 116.4074
     },
     {
       city: "Minneapolis",
-      stage: "PhD",
+      stage: "PhD (ing)",
+      school: "University of Minnesota",
+      major: "Geography",
       lat: 44.9778,
       lng: -93.2650
+    }
+  ];
+
+  var journeySegments = [
+    {
+      from: [30.5728, 104.0668],
+      to: [31.2304, 121.4737],
+      mode: "🚄",
+      label: "Chengdu → Shanghai"
+    },
+    {
+      from: [31.2304, 121.4737],
+      to: [39.9042, 116.4074],
+      mode: "🚄",
+      label: "Shanghai → Beijing"
+    },
+    {
+      from: [39.9042, 116.4074],
+      to: [44.9778, -93.2650],
+      mode: "✈️",
+      label: "Beijing → Minneapolis"
     }
   ];
 
   var journeyPoints = [];
 
   educationPlaces.forEach(function(place) {
-    var marker = L.marker([place.lat, place.lng])
+    L.marker([place.lat, place.lng])
       .addTo(educationMap)
       .bindPopup(
         "<strong>" + place.city + "</strong><br>" +
-        place.stage
+        place.stage + "<br>" +
+        place.school + "<br>" +
+        (place.major ? "Major: " + place.major : "")
       );
 
     journeyPoints.push([place.lat, place.lng]);
   });
 
-  L.polyline(journeyPoints, {
-    color: "#666",
-    weight: 3,
-    opacity: 0.8,
-    dashArray: "6, 8"
-  }).addTo(educationMap);
+  journeySegments.forEach(function(segment) {
+    var line = L.polyline([segment.from, segment.to], {
+      color: "#666",
+      weight: 3,
+      opacity: 0.8,
+      dashArray: "6, 8"
+    }).addTo(educationMap);
+
+    var midLat = (segment.from[0] + segment.to[0]) / 2;
+    var midLng = (segment.from[1] + segment.to[1]) / 2;
+
+    var modeIcon = L.divIcon({
+      className: "transport-mode-icon",
+      html: "<div>" + segment.mode + "</div>",
+      iconSize: [32, 32],
+      iconAnchor: [16, 16]
+    });
+
+    L.marker([midLat, midLng], { icon: modeIcon })
+      .addTo(educationMap)
+      .bindPopup(segment.label + "<br>Transportation: " + segment.mode);
+  });
 
   educationMap.fitBounds(journeyPoints, {
     padding: [30, 30]
