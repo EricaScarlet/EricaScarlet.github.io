@@ -2198,3 +2198,51 @@ h6 {
 .leaflet-popup-content strong {
   font-size: 16px;
 }
+
+.intro-ornament {
+  margin: 26px 0 22px 0;
+  text-align: center;
+}
+
+.ornament-line {
+  width: 70%;
+  height: 1px;
+  margin: 12px auto;
+  background: linear-gradient(to right, transparent, #999, transparent);
+}
+
+.intro-sentence {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #444;
+  letter-spacing: 0.4px;
+  margin: 12px auto;
+  max-width: 760px;
+}
+
+.intro-sentence::before {
+  content: "❦";
+  display: block;
+  font-size: 24px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.intro-sentence::after {
+  content: "❦";
+  display: block;
+  font-size: 24px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.plain-intro {
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #555;
+  margin: 22px 0 30px 0;
+  text-align: justify;
+}
