@@ -345,8 +345,8 @@ inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
     var modeIcon = L.divIcon({
       className: "transport-mode-icon",
       html: "<div>" + segment.mode + "</div>",
-      iconSize: [32, 32],
-      iconAnchor: [16, 16]
+      iconSize: [48, 48],
+      iconAnchor: [24, 24]
     });
 
     L.marker([midLat, midLng], { icon: modeIcon })
