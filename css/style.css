@@ -1765,7 +1765,7 @@ h6 {
 
 .research-card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
   margin-top: 18px;
 }
@@ -2015,4 +2015,84 @@ h6 {
 .publication-authors sup {
   font-size: 12px;
   color: #555;
+}
+
+.museum-map-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: stretch;
+}
+
+.museum-list {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.museum-list h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.museum-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.museum-list li {
+  margin-bottom: 10px;
+}
+
+.museum-name-btn {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.museum-name-btn span {
+  font-size: 12px;
+  color: #777;
+}
+
+.museum-name-btn:hover {
+  background: #eeeeee;
+  transform: translateX(4px);
+}
+
+#museum-map {
+  width: 100%;
+  height: 460px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .museum-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .museum-list {
+    max-height: none;
+  }
+
+  #museum-map {
+    height: 380px;
+  }
 }
